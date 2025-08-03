@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- SVG Definitions for Heart-Shaped Progress Bar -->
+    <!-- my Heart  svg Clip --> 
     <svg class="defs">
         <defs>
             <clipPath id="heart-clip">
@@ -70,7 +70,7 @@
                     <h3>My Story</h3>
                     <p>My love for coding sparked with HTML and CSS, growing into a passion for crafting delightful user experiences. JavaScript and frameworks like React fuel my creativity.</p>
                     <p>Currently, I'm diving into backend adventures with Node.js and Python, aiming to be a versatile full-stack developer.</p>
-                    <p>What I love most? Turning ideas into reality with code that’s as beautiful as it is functional.</p>
+                    <p>What I love most? Turning ideas into reality with code that's as beautiful as it is functional.</p>
                     
                     <div class="expertise">
                         <h3>My Expertise</h3>
@@ -318,15 +318,14 @@
             <p>Let me contact you or reach out to me on my email.</p>
             <div class="contact-container">
                 <div>
-                    <form>
-                        <input type="email" placeholder="enter your email" required>
+                    <form id="contactForm">
+                        <input type="email" id="userEmail" placeholder="enter your email" required>
                         <button type="submit">Let me in! 😊</button>
                     </form>
-                  
+                    <p class="alternative-contact">Or email me directly at: <a href="mailto:charlesfaith157@gmail.com">charlesfaith157@gmail.com</a></p>
                 </div>
                 <div>
                     <img src="images/contact.jpg" alt="Avatar">
-             
                 </div>
             </div>
         </div>
@@ -337,26 +336,25 @@
         <div class="container">
             <div class="social-links">
                 <a href="https://github.com/FaithMutua-code"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/faith-mutua-123456789/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://linkedin.com/in/faithmutua"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://twitter.com/FaithMutua"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/FaithMutua/"><i class="fab fa-instagram"></i></a>
-             
+                <a href="https://instagram.com/_faith_charles"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="copyright">© 2025 Faith Mutua. Made with 💖</p>
         </div>
     </footer>
 
     <script>
-        // Filter functionality for projects
+        
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                // Add filtering logic here if needed
+              
             });
         });
 
-        // Smooth scrolling
+ 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -365,8 +363,7 @@
                 });
             });
         });
-
-        // Animate skill bars on scroll
+l
         window.addEventListener('scroll', () => {
             const skillsSection = document.querySelector('#skills');
             const skillBars = document.querySelectorAll('.skill-progress');
@@ -378,6 +375,18 @@
                     bar.style.width = bar.getAttribute('style').match(/width:\s*(\d+%)/)[1];
                 });
             }
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userEmail = document.getElementById('userEmail').value;
+            
+            // Encode the subject and body for the email
+            const subject = encodeURIComponent("Contact from Portfolio Website");
+            const body = encodeURIComponent(`Hello Faith,\n\nI would like to get in touch with you. My email is: ${userEmail}\n\n[Your message here]`);
+            
+            // Redirect to Gmail with pre-filled email
+            window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=charlesfaith157@gmail.com&su=${subject}&body=${body}`;
         });
     </script>
 </body>
